@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { TempleIcon } from './TempleIcon'
+import { StonewallLogo } from './StonewallLogo'
 
 export function Hero() {
   const stats = [
@@ -24,18 +24,14 @@ export function Hero() {
       <div className="absolute inset-0 bg-[#0A0A0B]" />
       <div className="absolute inset-0 grid-bg" />
 
-      {/* Gradient orbs - Gold themed */}
+      {/* Gradient orbs */}
       <div className="glow-gold -top-48 -left-48 animate-float" />
       <div className="glow-maroon top-1/2 -right-48 animate-float" style={{ animationDelay: '3s' }} />
 
-      {/* Temple silhouette decoration */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 opacity-5">
-        <div className="flex justify-around items-end h-full">
-          <TempleIcon className="w-24 h-24" gradient={false} />
-          <TempleIcon className="w-32 h-32" gradient={false} />
-          <TempleIcon className="w-20 h-20" gradient={false} />
-          <TempleIcon className="w-28 h-28" gradient={false} />
-          <TempleIcon className="w-24 h-24" gradient={false} />
+      {/* Wall silhouette decoration */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 opacity-5">
+        <div className="flex justify-center items-end h-full">
+          <StonewallLogo className="w-96 h-24" gradient={false} />
         </div>
       </div>
 
@@ -44,14 +40,14 @@ export function Hero() {
           {/* Badge */}
           <div className="badge badge-gradient mb-8 inline-flex">
             <div className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse" />
-            <span>Web3 Security from Bangkok</span>
+            <span>Immovable Security</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]">
-            Protecting the{' '}
-            <span className="gradient-text">Decentralized</span>{' '}
-            Future
+            Security That{' '}
+            <span className="gradient-text">Stands</span>{' '}
+            Unbreakable
           </h1>
 
           {/* Subheading */}

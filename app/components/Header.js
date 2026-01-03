@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
-import { TempleIcon } from './TempleIcon'
+import { StonewallLogo } from './StonewallLogo'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -30,13 +30,13 @@ export function Header() {
     }`}>
       <nav className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          {/* Logo with Temple Icon */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <TempleIcon className="w-9 h-9 transition-transform group-hover:scale-105" />
+              <StonewallLogo className="w-10 h-10 transition-transform group-hover:scale-105" />
             </div>
             <span className="text-xl font-bold">
-              Bangkok<span className="gradient-text">Audits</span>
+              Stone<span className="gradient-text">wall</span>
             </span>
           </Link>
 

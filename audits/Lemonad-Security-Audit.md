@@ -2,15 +2,15 @@
 
 ## Introduction
 
-A time-boxed security review of the **Lemonad Protocol** was conducted by **Bangkok Audits**, with a focus on the security aspects of the smart contract implementation.
+A time-boxed security review of the **Lemonad Protocol** was conducted by **Stonewall**, with a focus on the security aspects of the smart contract implementation.
 
 ## Disclaimer
 
 A smart contract security review can never verify the complete absence of vulnerabilities. This is a time, resource and expertise bound effort where we try to find as many vulnerabilities as possible. We can not guarantee 100% security after the review or even if the review will find any problems with your smart contracts. Subsequent security reviews, bug bounty programs and on-chain monitoring are strongly recommended.
 
-## About Bangkok Audits
+## About Stonewall
 
-Bangkok Audits is an independent smart contract security firm specializing in comprehensive protocol reviews. Our team brings deep expertise in DeFi security, having reviewed DEXs, yield farming protocols, gaming contracts, and complex financial systems.
+Stonewall is an independent smart contract security firm delivering immovable protection for Web3 protocols. Our team brings deep expertise in DeFi security, having reviewed DEXs, yield farming protocols, gaming contracts, and complex financial systems.
 
 ## About Lemonad Protocol
 
@@ -433,4 +433,4 @@ The Lemonad Protocol demonstrates solid security practices with proper use of So
 
 ---
 
-*This security review was conducted by Bangkok Audits. For questions or clarifications, contact our team.*
+*This security review was conducted by Stonewall. For questions or clarifications, contact our team.*

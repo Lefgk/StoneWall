@@ -1,14 +1,14 @@
 import './globals.css'
 
 export const metadata = {
-  metadataBase: new URL('https://bangkokaudits.vercel.app'),
+  metadataBase: new URL('https://stonewall.vercel.app'),
   title: {
-    default: 'Bangkok Audits | Web3 Security',
-    template: '%s | Bangkok Audits'
+    default: 'Stonewall | Web3 Security',
+    template: '%s | Stonewall'
   },
-  description: 'Elite Web3 security auditing from Bangkok. Protecting smart contracts from vulnerabilities. Trusted by leading DeFi protocols.',
-  keywords: ['web3 security', 'smart contract audit', 'blockchain security', 'defi audit', 'solidity audit', 'bangkok', 'thailand'],
-  authors: [{ name: 'Bangkok Audits' }],
+  description: 'Immovable Web3 security. Smart contract audits that stand unbreakable. Protecting DeFi protocols from vulnerabilities.',
+  keywords: ['web3 security', 'smart contract audit', 'blockchain security', 'defi audit', 'solidity audit', 'stonewall'],
+  authors: [{ name: 'Stonewall' }],
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -17,17 +17,17 @@ export const metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: 'Bangkok Audits | Web3 Security',
-    description: 'Elite Web3 security auditing from Bangkok. Protecting smart contracts from vulnerabilities.',
-    url: 'https://bangkokaudits.vercel.app',
-    siteName: 'Bangkok Audits',
+    title: 'Stonewall | Web3 Security',
+    description: 'Immovable Web3 security. Smart contract audits that stand unbreakable.',
+    url: 'https://stonewall.vercel.app',
+    siteName: 'Stonewall',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bangkok Audits | Web3 Security',
-    description: 'Elite Web3 security auditing from Bangkok. Protecting smart contracts from vulnerabilities.',
+    title: 'Stonewall | Web3 Security',
+    description: 'Immovable Web3 security. Smart contract audits that stand unbreakable.',
   },
   robots: {
     index: true,

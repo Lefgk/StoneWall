@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { FileText, ExternalLink, Download, Calendar, X } from 'lucide-react'
-import { TempleIcon } from './TempleIcon'
+import { StonewallLogo } from './StonewallLogo'
 import { MonadLogo } from './ChainLogos'
 
 // Configure your GitHub repo here
@@ -121,7 +121,7 @@ export function Audits() {
         {/* Empty State */}
         {!loading && audits.length === 0 && (
           <div className="card p-12 text-center max-w-2xl mx-auto">
-            <TempleIcon className="w-20 h-20 mx-auto mb-6 opacity-50" />
+            <StonewallLogo className="w-20 h-20 mx-auto mb-6 opacity-50" />
             <h3 className="text-xl font-semibold text-white mb-3">Audits Coming Soon</h3>
             <p className="text-[#9CA3AF] mb-8">
               Our security reviews will be published here. Add PDF files to the{' '}

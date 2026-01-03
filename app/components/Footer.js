@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Twitter, Github, Mail } from 'lucide-react'
-import { TempleIcon } from './TempleIcon'
+import { StonewallLogo } from './StonewallLogo'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -21,7 +21,7 @@ export function Footer() {
     ],
     social: [
       { name: 'Twitter', href: 'https://twitter.com', icon: Twitter },
-      { name: 'GitHub', href: 'https://github.com/lefgiak', icon: Github },
+      { name: 'GitHub', href: 'https://github.com', icon: Github },
     ],
   }
 
@@ -30,14 +30,10 @@ export function Footer() {
       <div className="absolute inset-0 bg-[#0A0A0B]" />
       <div className="divider absolute top-0 left-0 right-0" />
 
-      {/* Decorative temple silhouettes */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 opacity-[0.02]">
-        <div className="flex justify-around items-end h-full">
-          <TempleIcon className="w-16 h-16" gradient={false} />
-          <TempleIcon className="w-20 h-20" gradient={false} />
-          <TempleIcon className="w-14 h-14" gradient={false} />
-          <TempleIcon className="w-18 h-18" gradient={false} />
-          <TempleIcon className="w-16 h-16" gradient={false} />
+      {/* Decorative wall silhouette */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 opacity-[0.03]">
+        <div className="flex justify-center items-end h-full">
+          <StonewallLogo className="w-64 h-16" gradient={false} />
         </div>
       </div>
 
@@ -52,7 +48,7 @@ export function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:hello@bangkokaudits.com"
+              href="mailto:hello@stonewall.security"
               className="btn-primary text-base"
             >
               <Mail className="w-5 h-5" />
@@ -75,13 +71,13 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <TempleIcon className="w-9 h-9" />
+              <StonewallLogo className="w-10 h-10" />
               <span className="text-xl font-bold">
-                Bangkok<span className="gradient-text">Audits</span>
+                Stone<span className="gradient-text">wall</span>
               </span>
             </Link>
             <p className="text-[#9CA3AF] text-sm leading-relaxed">
-              Elite Web3 security auditing from Bangkok. Protecting smart contracts from vulnerabilities.
+              Immovable Web3 security. Smart contract audits that stand unbreakable.
             </p>
           </div>
 
@@ -142,7 +138,7 @@ export function Footer() {
         <div className="divider mb-8" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[#9CA3AF] text-sm">
-            © {currentYear} Bangkok Audits. All rights reserved.
+            © {currentYear} Stonewall. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-[#9CA3AF] hover:text-[#D4AF37] transition-colors">
