@@ -8,7 +8,7 @@ import { MonadLogo } from './ChainLogos'
 // Configure your GitHub repo here
 const GITHUB_CONFIG = {
   owner: 'Lefgk',
-  repo: 'AuditsBangKok',
+  repo: 'StoneWall',
   branch: 'main',
   auditsPath: 'audits',
 }
@@ -21,7 +21,7 @@ const MANUAL_AUDITS = [
     client: 'Lemonad',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 1, medium: 4, low: 5, info: 3 },
-    pdfUrl: 'https://raw.githubusercontent.com/Lefgk/AuditsBangKok/main/audits/Lemonad-Security-Audit.md',
+    pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/Lemonad-Security-Audit.md',
     description: 'Comprehensive review of DEX, gaming contracts, yield farming, and treasury management on Monad.',
   },
   {
@@ -30,7 +30,7 @@ const MANUAL_AUDITS = [
     client: 'MonadFactory',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 1, high: 2, medium: 3, low: 4, info: 2 },
-    pdfUrl: 'https://raw.githubusercontent.com/Lefgk/AuditsBangKok/main/audits/MonadFactory-Security-Audit.md',
+    pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/MonadFactory-Security-Audit.md',
     description: 'Security review of token factory, farm factory, vesting, and vault contracts with critical findings.',
   },
 ]
