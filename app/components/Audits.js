@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { FileText, ExternalLink, Download, Calendar, X } from 'lucide-react'
 import { TempleIcon } from './TempleIcon'
+import { MonadLogo } from './ChainLogos'
 
 // Configure your GitHub repo here
 const GITHUB_CONFIG = {
@@ -18,6 +19,7 @@ const MANUAL_AUDITS = [
     name: 'Lemonad Protocol Security Review',
     date: 'January 2026',
     client: 'Lemonad',
+    chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 1, medium: 4, low: 5, info: 3 },
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/AuditsBangKok/main/audits/Lemonad-Security-Audit.md',
     description: 'Comprehensive review of DEX, gaming contracts, yield farming, and treasury management on Monad.',
@@ -26,6 +28,7 @@ const MANUAL_AUDITS = [
     name: 'MonadFactory Protocol Security Review',
     date: 'January 2026',
     client: 'MonadFactory',
+    chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 1, high: 2, medium: 3, low: 4, info: 2 },
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/AuditsBangKok/main/audits/MonadFactory-Security-Audit.md',
     description: 'Security review of token factory, farm factory, vesting, and vault contracts with critical findings.',
@@ -163,6 +166,22 @@ export function Audits() {
                   {audit.name}
                 </h3>
 
+                {/* Chain Badge */}
+                {audit.chain && (
+                  <div className="flex items-center gap-2 mb-3">
+                    <div
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium"
+                      style={{
+                        backgroundColor: `${audit.chain.color}15`,
+                        border: `1px solid ${audit.chain.color}40`
+                      }}
+                    >
+                      <audit.chain.logo className="w-4 h-4" />
+                      <span style={{ color: audit.chain.color }}>{audit.chain.name}</span>
+                    </div>
+                  </div>
+                )}
+
                 {/* Client & Date */}
                 {(audit.client || audit.date) && (
                   <div className="flex items-center gap-4 text-sm text-[#9CA3AF] mb-4">
@@ -245,9 +264,23 @@ export function Audits() {
               <div className="flex items-center justify-between p-5 border-b border-[rgba(212,175,55,0.15)]">
                 <div>
                   <h3 className="text-lg font-semibold text-white">{selectedAudit.name}</h3>
-                  {selectedAudit.client && (
-                    <p className="text-sm text-[#D4AF37]">{selectedAudit.client}</p>
-                  )}
+                  <div className="flex items-center gap-3 mt-1">
+                    {selectedAudit.client && (
+                      <span className="text-sm text-[#D4AF37]">{selectedAudit.client}</span>
+                    )}
+                    {selectedAudit.chain && (
+                      <div
+                        className="flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium"
+                        style={{
+                          backgroundColor: `${selectedAudit.chain.color}15`,
+                          border: `1px solid ${selectedAudit.chain.color}40`
+                        }}
+                      >
+                        <selectedAudit.chain.logo className="w-3.5 h-3.5" />
+                        <span style={{ color: selectedAudit.chain.color }}>{selectedAudit.chain.name}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <a
