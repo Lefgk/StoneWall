@@ -188,15 +188,27 @@ const MANUAL_AUDITS = [
   },
 ]
 
+// Get unique chains from audits
+const CHAINS = [
+  { name: 'All', logo: null, color: '#D4AF37' },
+  ...Array.from(new Map(MANUAL_AUDITS.map(a => [a.chain.name, a.chain])).values())
+]
+
 export function Audits() {
   const [audits, setAudits] = useState(MANUAL_AUDITS)
   const [loading, setLoading] = useState(true)
   const [selectedAudit, setSelectedAudit] = useState(null)
+  const [selectedChain, setSelectedChain] = useState('All')
 
   useEffect(() => {
     // Just use manual audits for now
     setLoading(false)
   }, [])
+
+  // Filter audits by selected chain
+  const filteredAudits = selectedChain === 'All'
+    ? audits
+    : audits.filter(a => a.chain.name === selectedChain)
 
   const getTotalFindings = (findings) => {
     if (!findings) return 0
@@ -220,6 +232,42 @@ export function Audits() {
           </p>
         </div>
 
+        {/* Chain Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mt-8 mb-8">
+          {CHAINS.map((chain) => (
+            <button
+              key={chain.name}
+              onClick={() => setSelectedChain(chain.name)}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                selectedChain === chain.name
+                  ? 'bg-[rgba(212,175,55,0.2)] border-[#D4AF37] text-[#D4AF37]'
+                  : 'bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.1)] text-[#9CA3AF] hover:text-white hover:border-[rgba(255,255,255,0.2)]'
+              } border`}
+              style={selectedChain === chain.name && chain.name !== 'All' ? {
+                backgroundColor: `${chain.color}15`,
+                borderColor: `${chain.color}60`,
+                color: chain.color
+              } : {}}
+            >
+              {chain.logo && <chain.logo className="w-4 h-4" />}
+              {chain.name}
+              <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                selectedChain === chain.name
+                  ? 'bg-[rgba(212,175,55,0.3)]'
+                  : 'bg-[rgba(255,255,255,0.1)]'
+              }`}
+              style={selectedChain === chain.name && chain.name !== 'All' ? {
+                backgroundColor: `${chain.color}30`
+              } : {}}
+              >
+                {chain.name === 'All'
+                  ? MANUAL_AUDITS.length
+                  : MANUAL_AUDITS.filter(a => a.chain.name === chain.name).length}
+              </span>
+            </button>
+          ))}
+        </div>
+
         {/* Loading State */}
         {loading && (
           <div className="flex justify-center items-center py-20">
@@ -228,7 +276,7 @@ export function Audits() {
         )}
 
         {/* Audits Table */}
-        {!loading && audits.length > 0 && (
+        {!loading && filteredAudits.length > 0 && (
           <div className="max-w-5xl mx-auto">
             {/* Table Header */}
             <div className="hidden md:grid grid-cols-12 gap-4 px-4 py-3 text-xs font-semibold text-[#9CA3AF] uppercase tracking-wider border-b border-[rgba(212,175,55,0.1)]">
@@ -241,7 +289,7 @@ export function Audits() {
 
             {/* Table Rows */}
             <div className="divide-y divide-[rgba(212,175,55,0.1)]">
-              {audits.map((audit, index) => (
+              {filteredAudits.map((audit, index) => (
                 <div
                   key={index}
                   className="grid grid-cols-1 md:grid-cols-12 gap-4 px-4 py-4 hover:bg-[rgba(212,175,55,0.03)] transition-colors cursor-pointer items-center"
