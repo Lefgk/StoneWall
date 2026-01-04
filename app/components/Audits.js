@@ -308,12 +308,8 @@ export function Audits() {
                   {/* Project Info */}
                   <div className="col-span-1 md:col-span-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center overflow-hidden">
-                        {audit.logo ? (
-                          <img src={audit.logo} alt={audit.name} className="w-full h-full object-cover" />
-                        ) : (
-                          <FileText className="w-5 h-5 text-[#D4AF37]" />
-                        )}
+                      <div className="w-10 h-10 rounded-lg bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center">
+                        <FileText className="w-5 h-5 text-[#D4AF37]" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-white">{audit.name}</h3>
