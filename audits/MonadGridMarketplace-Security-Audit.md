@@ -23,6 +23,14 @@ This audit reviews the MonadGridMarketplace smart contract, an NFT marketplace s
 | Low | 4 |
 | Informational | 2 |
 
+### Fixed Issues (from previous versions)
+
+| Severity | Issue | Status |
+|----------|-------|--------|
+| High | Reentrancy in buy() function | **Fixed** |
+| Medium | Missing zero-address check for feeRecipient | **Fixed** |
+| Low | Uncapped royalty from ERC2981 | **Fixed** |
+
 ---
 
 ## Scope
@@ -261,6 +269,70 @@ The contract lacks a pause mechanism for emergency situations (exploits, market 
 
 **Recommendation:**
 Inherit OpenZeppelin's `Pausable` and add `whenNotPaused` modifier to critical functions.
+
+---
+
+## Fixed Findings
+
+### [H-01] Reentrancy in buy() Function - **FIXED**
+
+**Severity:** High
+**Status:** Fixed
+
+**Previous Vulnerable Code:**
+```solidity
+// OLD - No reentrancy protection
+function buy(address collection, uint256 tokenId) external payable {
+    // ... transfer logic without nonReentrant
+}
+```
+
+**Current Fixed Code:**
+```solidity
+// FIXED - Added ReentrancyGuard
+function buy(address collection, uint256 tokenId) external payable nonReentrant {
+    // ... now protected
+}
+```
+
+**Verification:** All value-transferring functions now use `nonReentrant` modifier.
+
+---
+
+### [M-03] Missing Zero-Address Check for feeRecipient - **FIXED**
+
+**Severity:** Medium
+**Status:** Fixed
+
+**Previous Issue:**
+`setFeeRecipient()` could be called with zero address, causing fees to be lost.
+
+**Current Fix:**
+```solidity
+function setFeeRecipient(address newRecipient) external onlyOwner {
+    if (newRecipient == address(0)) revert InvalidFeeRecipient();
+    // ...
+}
+```
+
+---
+
+### [L-05] Uncapped Royalty from ERC2981 - **FIXED**
+
+**Severity:** Low
+**Status:** Fixed
+
+**Previous Issue:**
+Malicious ERC2981 implementations could return 100% royalty, draining seller proceeds.
+
+**Current Fix:**
+Royalties are now capped at MAX_ROYALTY_BPS (10%):
+```solidity
+uint128 maxRoyalty = uint128((uint256(amount) * MAX_ROYALTY_BPS) / MAX_BPS);
+if (royaltyPaid > maxRoyalty) {
+    royaltyPaid = maxRoyalty;
+}
+```
 
 ---
 

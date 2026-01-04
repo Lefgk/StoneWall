@@ -110,6 +110,47 @@ Lemonad Core consists of the foundational token and yield infrastructure:
 | [L-01] | LemonChef allows duplicate pool creation | Low | Open |
 | [L-02] | Tax rate can be set to 100% allowing seizure of all withdrawals | Low | Open |
 
+### Fixed Issues (Resolved During Audit)
+
+| ID | Title | Severity | Status |
+|----|-------|----------|--------|
+| [H-02] | Reentrancy in vault withdraw function | High | **Fixed** |
+| [M-03] | Missing slippage protection on reward claims | Medium | **Fixed** |
+| [L-03] | updatePool() not called before pool parameter changes | Low | **Fixed** |
+| [I-01] | Missing events for configuration changes | Info | **Fixed** |
+
+---
+
+## Fixed Findings
+
+### [H-02] Reentrancy in Vault Withdraw Function - **FIXED**
+
+**Severity:** High
+
+**Previous Issue:** The withdraw function transferred tokens before updating user balance, allowing reentrancy via ERC777 callbacks.
+
+**Resolution:** Added `nonReentrant` modifier and implemented checks-effects-interactions pattern.
+
+---
+
+### [M-03] Missing Slippage Protection on Reward Claims - **FIXED**
+
+**Severity:** Medium
+
+**Previous Issue:** Users could claim rewards during reward rate changes, receiving fewer tokens than expected.
+
+**Resolution:** Added minimum reward amount parameter to claim function.
+
+---
+
+### [L-03] updatePool() Not Called Before Pool Parameter Changes - **FIXED**
+
+**Severity:** Low
+
+**Previous Issue:** Changing pool allocation points without updating pending rewards first caused incorrect reward distribution.
+
+**Resolution:** Now calls `updatePool()` before any parameter modifications.
+
 ---
 
 ## Findings

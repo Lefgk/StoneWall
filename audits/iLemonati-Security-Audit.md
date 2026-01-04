@@ -106,6 +106,46 @@ iLemonati is an NFT collection with a tiered minting system:
 | [L-03] | No total supply cap enforcement in contract | Low | Open |
 | [L-04] | Admin can mint unlimited NFTs bypassing all limits | Low | Open |
 
+### Fixed Issues (Resolved During Audit)
+
+| ID | Title | Severity | Status |
+|----|-------|----------|--------|
+| [H-01] | Missing reentrancy guard on mint function | High | **Fixed** |
+| [M-03] | ETH not refunded on overpayment | Medium | **Fixed** |
+| [L-05] | Missing zero quantity check | Low | **Fixed** |
+
+---
+
+## Fixed Findings
+
+### [H-01] Missing ReentrancyGuard on Mint Function - **FIXED**
+
+**Severity:** High
+
+**Previous Issue:** The mint function could be reentered via ERC721 callbacks during batch minting.
+
+**Resolution:** Added `nonReentrant` modifier from OpenZeppelin.
+
+---
+
+### [M-03] ETH Not Refunded on Overpayment - **FIXED**
+
+**Severity:** Medium
+
+**Previous Issue:** Users paying more than the required mint price would lose the excess ETH.
+
+**Resolution:** Added refund logic: `if (msg.value > cost) payable(msg.sender).transfer(msg.value - cost);`
+
+---
+
+### [L-05] Missing Zero Quantity Check - **FIXED**
+
+**Severity:** Low
+
+**Previous Issue:** Users could call mint with quantity=0, wasting gas.
+
+**Resolution:** Added `require(quantity > 0, "Invalid quantity");`
+
 ---
 
 ## Findings

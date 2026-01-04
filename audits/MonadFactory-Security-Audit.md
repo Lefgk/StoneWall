@@ -119,6 +119,46 @@ MonadFactory provides infrastructure for creating DeFi primitives on Monad:
 | [L-03] | No maximum duration limit for vesting schedules | Low | Open |
 | [L-04] | Distribution wallet validation missing | Low | Open |
 
+### Fixed Issues (Resolved During Audit)
+
+| ID | Title | Severity | Status |
+|----|-------|----------|--------|
+| [H-03] | Missing ReentrancyGuard on stake/unstake functions | High | **Fixed** |
+| [M-04] | Zero amount deposits were not rejected | Medium | **Fixed** |
+| [L-05] | Events emitted with incorrect parameters | Low | **Fixed** |
+
+---
+
+## Fixed Findings
+
+### [H-03] Missing ReentrancyGuard on stake/unstake Functions - **FIXED**
+
+**Severity:** High
+
+**Previous Issue:** Farm stake and unstake functions lacked reentrancy protection, potentially allowing reentrant attacks with ERC777 tokens.
+
+**Resolution:** Added `nonReentrant` modifier to all stake, unstake, and claim functions in Farm and Vault contracts.
+
+---
+
+### [M-04] Zero Amount Deposits Were Not Rejected - **FIXED**
+
+**Severity:** Medium
+
+**Previous Issue:** Users could call deposit with amount = 0, wasting gas and creating confusing events.
+
+**Resolution:** Added `require(amount > 0, "Cannot stake 0");` check to all deposit functions.
+
+---
+
+### [L-05] Events Emitted with Incorrect Parameters - **FIXED**
+
+**Severity:** Low
+
+**Previous Issue:** Deposit events were emitting `amount` instead of actual received amount (problematic for fee-on-transfer tokens).
+
+**Resolution:** Events now emit the actual balance change rather than the input amount.
+
 ---
 
 ## Findings

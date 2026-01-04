@@ -120,3 +120,36 @@ export function BNBChainLogo({ className = "w-5 h-5" }) {
     </svg>
   )
 }
+
+// Solana Logo
+export function SolanaLogo({ className = "w-5 h-5" }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      className={className}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="solanaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00FFA3" />
+          <stop offset="50%" stopColor="#03E1FF" />
+          <stop offset="100%" stopColor="#DC1FFF" />
+        </linearGradient>
+      </defs>
+      <circle cx="16" cy="16" r="14" fill="#14F195" />
+      <path
+        d="M8 18.5L11 15.5H24L21 18.5H8Z"
+        fill="white"
+      />
+      <path
+        d="M8 13.5L11 10.5H24L21 13.5H8Z"
+        fill="white"
+      />
+      <path
+        d="M21 21.5L24 18.5H11L8 21.5H21Z"
+        fill="white"
+      />
+    </svg>
+  )
+}

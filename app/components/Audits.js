@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { FileText, ExternalLink, Download, Calendar, X } from 'lucide-react'
 import { StonewallLogo } from './StonewallLogo'
-import { MonadLogo, PulseChainLogo, AvalancheLogo, BNBChainLogo } from './ChainLogos'
+import { MonadLogo, PulseChainLogo, AvalancheLogo, BNBChainLogo, SolanaLogo } from './ChainLogos'
 
 // Configure your GitHub repo here
 const GITHUB_CONFIG = {
@@ -129,6 +129,62 @@ const MANUAL_AUDITS = [
     pdfUrl: 'https://github.com/Lefgk/StoneWall/raw/main/audits/DTreon-Security-Audit.pdf',
     description: 'Web3 creator platform',
     socials: { twitter: 'https://x.com/Dtreon_Official', discord: 'https://discord.gg/jUdwMWfEtJ' },
+  },
+  // Solana Ecosystem
+  {
+    name: 'Skinflip Staking',
+    date: 'Jan 2026',
+    client: 'Skinflip',
+    chain: { name: 'Solana', logo: SolanaLogo, color: '#14F195' },
+    findings: { critical: 0, high: 1, medium: 2, low: 3, info: 2 },
+    sloc: 200,
+    pdfUrl: 'https://github.com/Lefgk/StoneWall/raw/main/audits/Solana-Skinflip-Staking-Security-Audit.pdf',
+    description: 'NFT staking prototype',
+    socials: { twitter: 'https://github.com/rpajo/solana-staking' },
+  },
+  {
+    name: 'Escrow Swap',
+    date: 'Jan 2026',
+    client: 'Solana Examples',
+    chain: { name: 'Solana', logo: SolanaLogo, color: '#14F195' },
+    findings: { critical: 0, high: 0, medium: 2, low: 3, info: 2 },
+    sloc: 250,
+    pdfUrl: 'https://github.com/Lefgk/StoneWall/raw/main/audits/Solana-Escrow-Swap-Security-Audit.pdf',
+    description: 'Atomic token swaps',
+    socials: { twitter: 'https://github.com/rustjesty/solana-escrow-smart-contract' },
+  },
+  {
+    name: 'SOLotery',
+    date: 'Jan 2026',
+    client: 'SOLotery',
+    chain: { name: 'Solana', logo: SolanaLogo, color: '#14F195' },
+    findings: { critical: 1, high: 1, medium: 2, low: 2, info: 2 },
+    sloc: 220,
+    pdfUrl: 'https://github.com/Lefgk/StoneWall/raw/main/audits/Solana-SOLotery-Security-Audit.pdf',
+    description: 'Decentralized lottery',
+    socials: { twitter: 'https://github.com/mateolafalce/SOLotery' },
+  },
+  {
+    name: 'Token Swap AMM',
+    date: 'Jan 2026',
+    client: 'Solana Developers',
+    chain: { name: 'Solana', logo: SolanaLogo, color: '#14F195' },
+    findings: { critical: 0, high: 0, medium: 2, low: 3, info: 2 },
+    sloc: 560,
+    pdfUrl: 'https://github.com/Lefgk/StoneWall/raw/main/audits/Solana-Token-Swap-AMM-Security-Audit.pdf',
+    description: 'Constant-product AMM',
+    socials: { twitter: 'https://github.com/solana-developers/program-examples' },
+  },
+  {
+    name: 'NFT Raffle',
+    date: 'Jan 2026',
+    client: 'Riff Raffle',
+    chain: { name: 'Solana', logo: SolanaLogo, color: '#14F195' },
+    findings: { critical: 1, high: 1, medium: 2, low: 2, info: 2 },
+    sloc: 600,
+    pdfUrl: 'https://github.com/Lefgk/StoneWall/raw/main/audits/Solana-NFT-Raffle-Security-Audit.pdf',
+    description: 'NFT raffle system',
+    socials: { twitter: 'https://github.com/reecen96/Riff-Raffle-Solana-NFT' },
   },
 ]
 
