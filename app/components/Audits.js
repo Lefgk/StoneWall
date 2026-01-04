@@ -89,6 +89,18 @@ const MANUAL_AUDITS = [
     description: 'NFT Marketplace with offers & royalties',
     socials: { twitter: 'https://x.com/MonadLaunchgrid', discord: 'https://discord.gg/AhYKdnCr' },
   },
+  // Global Internet Money (PulseChain)
+  {
+    name: 'Global Internet Money',
+    date: 'Jan 2026',
+    client: 'MoniesTree',
+    chain: { name: 'PulseChain', logo: PulseChainLogo, color: '#00FF00' },
+    findings: { critical: 1, high: 2, medium: 3, low: 3, info: 0 },
+    sloc: 1140,
+    pdfUrl: 'https://github.com/Lefgk/StoneWall/raw/main/audits/GlobalInternetMoney-Security-Audit.pdf',
+    description: 'Auction, vesting & staking protocol',
+    socials: {},
+  },
   // PulseFun (PulseChain)
   {
     name: 'PulseFun Betting',
