@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FileText, ExternalLink, Download, Calendar, X } from 'lucide-react'
+import { FileText, ExternalLink, Download, Calendar, X, Shield, AlertTriangle, CheckCircle, Code } from 'lucide-react'
 import { StonewallLogo } from './StonewallLogo'
 import { MonadLogo, PulseChainLogo, AvalancheLogo, BNBChainLogo } from './ChainLogos'
 
@@ -17,97 +17,106 @@ const GITHUB_CONFIG = {
 const MANUAL_AUDITS = [
   // Lemonad Ecosystem (Monad)
   {
-    name: 'Lemonad Core Security Review',
-    date: 'January 2026',
+    name: 'Lemonad Core',
+    date: 'Jan 2026',
     client: 'Lemonad',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 2, low: 2, info: 1 },
+    sloc: 1200,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/Lemonad-Core-Security-Audit.md',
-    description: 'Token, yield farming (LemonChef), YieldBoostVault, and treasury management.',
+    description: 'Token, yield farming, vault, treasury',
     socials: { twitter: 'https://x.com/LeMONAD_Factory', telegram: 'https://t.me/LeMONAD_Factory' },
   },
   {
-    name: 'Lemonad DEX Security Review',
-    date: 'January 2026',
+    name: 'Lemonad DEX',
+    date: 'Jan 2026',
     client: 'Lemonad',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 1, low: 2, info: 2 },
+    sloc: 800,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/Lemonad-DEX-Security-Audit.md',
-    description: 'Uniswap V2 fork: Factory, Router, Pair, FeeCollector, and WMON contracts.',
+    description: 'Uniswap V2 fork',
     socials: { twitter: 'https://x.com/LeMONAD_Factory', telegram: 'https://t.me/LeMONAD_Factory' },
   },
   {
-    name: 'Lemonad Gaming Suite Security Review',
-    date: 'January 2026',
+    name: 'Lemonad Gaming',
+    date: 'Jan 2026',
     client: 'Lemonad',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 2, low: 3, info: 3 },
+    sloc: 1870,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/Lemonad-Gaming-Security-Audit.md',
-    description: 'On-chain gaming: Dice, Lotto, Battles, Racing, Predictions with Pyth VRF.',
+    description: 'Dice, Lotto, Battles, Racing',
     socials: { twitter: 'https://x.com/LeMONAD_Factory', telegram: 'https://t.me/LeMONAD_Factory' },
   },
   {
-    name: 'iLemonati NFT Security Review',
-    date: 'January 2026',
+    name: 'iLemonati NFT',
+    date: 'Jan 2026',
     client: 'Lemonad',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 1, low: 3, info: 2 },
+    sloc: 350,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/iLemonati-Security-Audit.md',
-    description: 'NFT minting contract with OG/WL/public phases and tiered pricing.',
+    description: 'NFT minting with phases',
     socials: { twitter: 'https://x.com/LeMONAD_Factory', telegram: 'https://t.me/LeMONAD_Factory' },
   },
   // MonadFactory (Monad)
   {
-    name: 'MonadFactory Protocol Security Review',
-    date: 'January 2026',
+    name: 'MonadFactory',
+    date: 'Jan 2026',
     client: 'MonadFactory',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 1, high: 2, medium: 3, low: 4, info: 2 },
+    sloc: 1500,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/MonadFactory-Security-Audit.md',
-    description: 'Token factory, farm factory, vesting, and vault contracts with critical findings.',
+    description: 'Token & Farm Factory',
     socials: { twitter: 'https://x.com/MonadLaunchgrid', discord: 'https://discord.gg/AhYKdnCr' },
   },
   // PulseFun (PulseChain)
   {
-    name: 'PulseFun Betting Security Review',
-    date: 'January 2026',
+    name: 'PulseFun Betting',
+    date: 'Jan 2026',
     client: 'PulseFun',
     chain: { name: 'PulseChain', logo: PulseChainLogo, color: '#00FF00' },
     findings: { critical: 0, high: 0, medium: 3, low: 3, info: 0 },
+    sloc: 1320,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/PulseFun-Betting-Security-Audit.md',
-    description: 'Prediction markets with price bets, custom bets, and PoolV3 yield integration.',
+    description: 'Prediction markets',
     socials: { twitter: 'https://x.com/nexionpulse', telegram: 'https://t.me/NexionPulse' },
   },
   {
-    name: 'PulseFun NEON Security Review',
-    date: 'January 2026',
+    name: 'PulseFun NEON',
+    date: 'Jan 2026',
     client: 'PulseFun',
     chain: { name: 'PulseChain', logo: PulseChainLogo, color: '#00FF00' },
     findings: { critical: 0, high: 1, medium: 2, low: 3, info: 0 },
+    sloc: 1230,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/PulseFun-NEON-Security-Audit.md',
-    description: 'Deflationary NEON token with staking, auctions, vault, and buy-n-burn.',
+    description: 'Deflationary token ecosystem',
     socials: { twitter: 'https://x.com/nexionpulse', telegram: 'https://t.me/NexionPulse' },
   },
   // StackFi (Avalanche)
   {
-    name: 'StackFi Avax Security Review',
-    date: 'January 2026',
+    name: 'StackFi Avax',
+    date: 'Jan 2026',
     client: 'StackFi',
     chain: { name: 'Avalanche', logo: AvalancheLogo, color: '#E84142' },
     findings: { critical: 0, high: 0, medium: 0, low: 1, info: 2 },
+    sloc: 550,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/StackFi-Avax-Security-Audit.md',
-    description: 'Gearbox Protocol V3 fork for leveraged yield farming on Avalanche.',
+    description: 'Gearbox V3 fork',
     socials: { twitter: 'https://x.com/stackfibase', discord: 'https://discord.com/invite/WwdrKyyfnZ' },
   },
   // DTreon (BNB Chain)
   {
-    name: 'DTreon Platform Security Review',
-    date: 'January 2026',
+    name: 'DTreon Platform',
+    date: 'Jan 2026',
     client: 'DTreon',
     chain: { name: 'BNB Chain', logo: BNBChainLogo, color: '#F3BA2F' },
     findings: { critical: 0, high: 1, medium: 3, low: 3, info: 0 },
+    sloc: 2160,
     pdfUrl: 'https://raw.githubusercontent.com/Lefgk/StoneWall/main/audits/DTreon-Security-Audit.md',
-    description: 'Web3 Patreon: subscriptions, PPV content, DMs, tips, and profit-sharing staking.',
+    description: 'Web3 creator platform',
     socials: { twitter: 'https://x.com/Dtreon_Official', discord: 'https://discord.gg/jUdwMWfEtJ' },
   },
 ]
@@ -118,57 +127,28 @@ export function Audits() {
   const [selectedAudit, setSelectedAudit] = useState(null)
 
   useEffect(() => {
-    fetchAuditsFromGitHub()
+    // Just use manual audits for now
+    setLoading(false)
   }, [])
 
-  async function fetchAuditsFromGitHub() {
-    try {
-      const { owner, repo, branch, auditsPath } = GITHUB_CONFIG
-      const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${auditsPath}?ref=${branch}`
-
-      const response = await fetch(apiUrl)
-
-      if (!response.ok) {
-        setLoading(false)
-        return
-      }
-
-      const files = await response.json()
-
-      if (!Array.isArray(files)) {
-        setLoading(false)
-        return
-      }
-
-      const pdfAudits = files
-        .filter(file => file.name.endsWith('.pdf'))
-        .map(file => ({
-          name: formatAuditName(file.name),
-          fileName: file.name,
-          pdfUrl: file.download_url,
-          htmlUrl: file.html_url,
-          size: formatFileSize(file.size),
-        }))
-
-      setAudits([...MANUAL_AUDITS, ...pdfAudits])
-    } catch (error) {
-      console.error('Error fetching audits:', error)
-    } finally {
-      setLoading(false)
-    }
+  // Calculate stats
+  const stats = {
+    totalAudits: audits.length,
+    totalFindings: audits.reduce((acc, a) => {
+      const f = a.findings || {}
+      return acc + (f.critical || 0) + (f.high || 0) + (f.medium || 0) + (f.low || 0) + (f.info || 0)
+    }, 0),
+    criticalHigh: audits.reduce((acc, a) => {
+      const f = a.findings || {}
+      return acc + (f.critical || 0) + (f.high || 0)
+    }, 0),
+    totalSLOC: audits.reduce((acc, a) => acc + (a.sloc || 0), 0),
+    chains: [...new Set(audits.map(a => a.chain?.name).filter(Boolean))].length,
   }
 
-  function formatAuditName(fileName) {
-    return fileName
-      .replace('.pdf', '')
-      .replace(/[-_]/g, ' ')
-      .replace(/\b\w/g, c => c.toUpperCase())
-  }
-
-  function formatFileSize(bytes) {
-    if (bytes < 1024) return bytes + ' B'
-    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB'
-    return (bytes / (1024 * 1024)).toFixed(1) + ' MB'
+  const getTotalFindings = (findings) => {
+    if (!findings) return 0
+    return (findings.critical || 0) + (findings.high || 0) + (findings.medium || 0) + (findings.low || 0) + (findings.info || 0)
   }
 
   return (
@@ -181,11 +161,43 @@ export function Audits() {
         <div className="section-header thai-border pt-8">
           <p className="section-label">Our Work</p>
           <h2 className="section-title">
-            Public <span className="gradient-text">Audits</span>
+            Audit <span className="gradient-text">Portfolio</span>
           </h2>
           <p className="section-subtitle">
-            Browse our completed security reviews. Full reports in Pashov format available for download.
+            Security reviews completed by Stonewall. Full reports available for download.
           </p>
+        </div>
+
+        {/* Stats Row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+          <div className="card-highlight p-6 text-center">
+            <div className="flex justify-center mb-2">
+              <Shield className="w-6 h-6 text-[#D4AF37]" />
+            </div>
+            <div className="text-3xl font-bold text-white">{stats.totalAudits}</div>
+            <div className="text-sm text-[#9CA3AF]">Total Audits</div>
+          </div>
+          <div className="card-highlight p-6 text-center">
+            <div className="flex justify-center mb-2">
+              <AlertTriangle className="w-6 h-6 text-[#D4AF37]" />
+            </div>
+            <div className="text-3xl font-bold text-white">{stats.totalFindings}</div>
+            <div className="text-sm text-[#9CA3AF]">Issues Found</div>
+          </div>
+          <div className="card-highlight p-6 text-center">
+            <div className="flex justify-center mb-2">
+              <CheckCircle className="w-6 h-6 text-[#D4AF37]" />
+            </div>
+            <div className="text-3xl font-bold text-white">{stats.criticalHigh}</div>
+            <div className="text-sm text-[#9CA3AF]">Critical/High</div>
+          </div>
+          <div className="card-highlight p-6 text-center">
+            <div className="flex justify-center mb-2">
+              <Code className="w-6 h-6 text-[#D4AF37]" />
+            </div>
+            <div className="text-3xl font-bold text-white">{(stats.totalSLOC / 1000).toFixed(1)}k</div>
+            <div className="text-sm text-[#9CA3AF]">Lines Reviewed</div>
+          </div>
         </div>
 
         {/* Loading State */}
@@ -195,135 +207,108 @@ export function Audits() {
           </div>
         )}
 
-        {/* Empty State */}
-        {!loading && audits.length === 0 && (
-          <div className="card p-12 text-center max-w-2xl mx-auto">
-            <StonewallLogo className="w-20 h-20 mx-auto mb-6 opacity-50" />
-            <h3 className="text-xl font-semibold text-white mb-3">Audits Coming Soon</h3>
-            <p className="text-[#9CA3AF] mb-8">
-              Our security reviews will be published here. Add PDF files to the{' '}
-              <code className="text-[#D4AF37] bg-[#D4AF37]/10 px-2 py-1 rounded">audits/</code>{' '}
-              folder in your GitHub repository.
-            </p>
-            <div className="bg-[#0A0A0A] rounded-lg p-4 text-left font-mono text-sm border border-[rgba(212,175,55,0.15)]">
-              <div className="text-[#9CA3AF] mb-2">$ Add your first audit:</div>
-              <code className="text-[#D4AF37]">
-                mkdir audits<br />
-                cp your-audit.pdf audits/<br />
-                git add . && git commit -m "Add audit"<br />
-                git push
-              </code>
-            </div>
-          </div>
-        )}
-
-        {/* Audits Grid */}
+        {/* Audits Table */}
         {!loading && audits.length > 0 && (
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-7xl mx-auto">
-            {audits.map((audit, index) => (
-              <div
-                key={index}
-                className="audit-card p-4 cursor-pointer gold-shimmer"
-                onClick={() => setSelectedAudit(audit)}
-              >
-                {/* Header */}
-                <div className="flex items-start justify-between mb-2">
-                  <div className="feature-icon w-8 h-8">
-                    <FileText className="w-4 h-4" />
-                  </div>
-                  {audit.size && (
-                    <span className="text-[10px] text-[#9CA3AF] bg-white/5 px-2 py-0.5 rounded-full">
-                      {audit.size}
-                    </span>
-                  )}
-                </div>
+          <div className="max-w-5xl mx-auto">
+            {/* Table Header */}
+            <div className="hidden md:grid grid-cols-12 gap-4 px-4 py-3 text-xs font-semibold text-[#9CA3AF] uppercase tracking-wider border-b border-[rgba(212,175,55,0.1)]">
+              <div className="col-span-4">Project</div>
+              <div className="col-span-2">Chain</div>
+              <div className="col-span-3">Findings</div>
+              <div className="col-span-1 text-center">SLOC</div>
+              <div className="col-span-2 text-right">Report</div>
+            </div>
 
-                {/* Title */}
-                <h3 className="text-sm font-semibold text-white mb-1.5 line-clamp-2">
-                  {audit.name}
-                </h3>
-
-                {/* Chain Badge */}
-                {audit.chain && (
-                  <div className="flex items-center gap-2 mb-2">
-                    <div
-                      className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium"
-                      style={{
-                        backgroundColor: `${audit.chain.color}15`,
-                        border: `1px solid ${audit.chain.color}40`
-                      }}
-                    >
-                      <audit.chain.logo className="w-3 h-3" />
-                      <span style={{ color: audit.chain.color }}>{audit.chain.name}</span>
+            {/* Table Rows */}
+            <div className="divide-y divide-[rgba(212,175,55,0.1)]">
+              {audits.map((audit, index) => (
+                <div
+                  key={index}
+                  className="grid grid-cols-1 md:grid-cols-12 gap-4 px-4 py-4 hover:bg-[rgba(212,175,55,0.03)] transition-colors cursor-pointer items-center"
+                  onClick={() => setSelectedAudit(audit)}
+                >
+                  {/* Project Info */}
+                  <div className="col-span-1 md:col-span-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center">
+                        <FileText className="w-5 h-5 text-[#D4AF37]" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white">{audit.name}</h3>
+                        <p className="text-xs text-[#9CA3AF]">{audit.client} · {audit.date}</p>
+                      </div>
                     </div>
                   </div>
-                )}
 
-                {/* Client & Date */}
-                {(audit.client || audit.date) && (
-                  <div className="flex items-center gap-2 text-xs text-[#9CA3AF] mb-2">
-                    {audit.client && <span className="text-[#D4AF37]">{audit.client}</span>}
-                    {audit.date && (
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-2.5 h-2.5" />
-                        {audit.date}
-                      </span>
+                  {/* Chain */}
+                  <div className="col-span-1 md:col-span-2">
+                    {audit.chain && (
+                      <div
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium"
+                        style={{
+                          backgroundColor: `${audit.chain.color}15`,
+                          border: `1px solid ${audit.chain.color}40`
+                        }}
+                      >
+                        <audit.chain.logo className="w-3.5 h-3.5" />
+                        <span style={{ color: audit.chain.color }}>{audit.chain.name}</span>
+                      </div>
                     )}
                   </div>
-                )}
 
-                {/* Findings Summary */}
-                {audit.findings && (
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    {audit.findings.critical > 0 && (
-                      <span className="severity-critical text-[10px] px-1.5 py-0.5">{audit.findings.critical}C</span>
-                    )}
-                    {audit.findings.high > 0 && (
-                      <span className="severity-high text-[10px] px-1.5 py-0.5">{audit.findings.high}H</span>
-                    )}
-                    {audit.findings.medium > 0 && (
-                      <span className="severity-medium text-[10px] px-1.5 py-0.5">{audit.findings.medium}M</span>
-                    )}
-                    {audit.findings.low > 0 && (
-                      <span className="severity-low text-[10px] px-1.5 py-0.5">{audit.findings.low}L</span>
-                    )}
-                    {audit.findings.info > 0 && (
-                      <span className="severity-info text-[10px] px-1.5 py-0.5">{audit.findings.info}I</span>
-                    )}
+                  {/* Findings */}
+                  <div className="col-span-1 md:col-span-3">
+                    <div className="flex flex-wrap gap-1">
+                      {audit.findings?.critical > 0 && (
+                        <span className="severity-critical text-xs px-2 py-0.5">{audit.findings.critical}C</span>
+                      )}
+                      {audit.findings?.high > 0 && (
+                        <span className="severity-high text-xs px-2 py-0.5">{audit.findings.high}H</span>
+                      )}
+                      {audit.findings?.medium > 0 && (
+                        <span className="severity-medium text-xs px-2 py-0.5">{audit.findings.medium}M</span>
+                      )}
+                      {audit.findings?.low > 0 && (
+                        <span className="severity-low text-xs px-2 py-0.5">{audit.findings.low}L</span>
+                      )}
+                      {audit.findings?.info > 0 && (
+                        <span className="severity-info text-xs px-2 py-0.5">{audit.findings.info}I</span>
+                      )}
+                      {getTotalFindings(audit.findings) === 0 && (
+                        <span className="text-xs text-[#9CA3AF]">No issues</span>
+                      )}
+                    </div>
                   </div>
-                )}
 
-                {/* Description - hidden on smaller cards */}
-                {audit.description && (
-                  <p className="text-[#9CA3AF] text-[11px] mb-2 line-clamp-2 hidden lg:block">
-                    {audit.description}
-                  </p>
-                )}
+                  {/* SLOC */}
+                  <div className="hidden md:block col-span-1 text-center">
+                    <span className="text-sm text-[#9CA3AF]">{audit.sloc ? `${(audit.sloc / 1000).toFixed(1)}k` : '-'}</span>
+                  </div>
 
-                {/* Actions */}
-                <div className="flex gap-3 mt-auto pt-2 border-t border-[rgba(212,175,55,0.1)]">
-                  <a
-                    href={audit.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-xs text-[#D4AF37] hover:text-[#F4C430] transition-colors font-medium"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink className="w-3 h-3" />
-                    View
-                  </a>
-                  <a
-                    href={audit.pdfUrl}
-                    download
-                    className="flex items-center gap-1 text-xs text-[#9CA3AF] hover:text-white transition-colors font-medium"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <Download className="w-3 h-3" />
-                    DL
-                  </a>
+                  {/* Actions */}
+                  <div className="col-span-1 md:col-span-2 flex justify-end gap-2">
+                    <a
+                      href={audit.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#D4AF37] hover:text-[#F4C430] bg-[rgba(212,175,55,0.1)] hover:bg-[rgba(212,175,55,0.15)] rounded-lg transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      View
+                    </a>
+                    <a
+                      href={audit.pdfUrl}
+                      download
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#9CA3AF] hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
 
