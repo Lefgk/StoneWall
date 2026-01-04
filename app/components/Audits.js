@@ -20,6 +20,7 @@ const MANUAL_AUDITS = [
     name: 'Lemonad Core',
     date: 'Jan 2026',
     client: 'Lemonad',
+    logo: '/projects/lemonad.jpg',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 2, low: 2, info: 1 },
     sloc: 1200,
@@ -31,6 +32,7 @@ const MANUAL_AUDITS = [
     name: 'Lemonad DEX',
     date: 'Jan 2026',
     client: 'Lemonad',
+    logo: '/projects/lemonad.jpg',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 1, low: 2, info: 2 },
     sloc: 800,
@@ -42,6 +44,7 @@ const MANUAL_AUDITS = [
     name: 'Lemonad Gaming',
     date: 'Jan 2026',
     client: 'Lemonad',
+    logo: '/projects/lemonad.jpg',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 2, low: 3, info: 3 },
     sloc: 1870,
@@ -53,6 +56,7 @@ const MANUAL_AUDITS = [
     name: 'iLemonati NFT',
     date: 'Jan 2026',
     client: 'Lemonad',
+    logo: '/projects/lemonad.jpg',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 1, low: 3, info: 2 },
     sloc: 350,
@@ -65,6 +69,7 @@ const MANUAL_AUDITS = [
     name: 'MonadFactory',
     date: 'Jan 2026',
     client: 'MonadFactory',
+    logo: '/projects/monadfactory.png',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 1, high: 2, medium: 3, low: 4, info: 2 },
     sloc: 1500,
@@ -76,6 +81,7 @@ const MANUAL_AUDITS = [
     name: 'MonadGrid Marketplace',
     date: 'Jan 2026',
     client: 'MonadGrid',
+    logo: '/projects/monadfactory.png',
     chain: { name: 'Monad', logo: MonadLogo, color: '#836EF9' },
     findings: { critical: 0, high: 0, medium: 2, low: 4, info: 2 },
     sloc: 450,
@@ -88,6 +94,7 @@ const MANUAL_AUDITS = [
     name: 'PulseFun Betting',
     date: 'Jan 2026',
     client: 'PulseFun',
+    logo: '/projects/pulsefun.png',
     chain: { name: 'PulseChain', logo: PulseChainLogo, color: '#00FF00' },
     findings: { critical: 0, high: 0, medium: 3, low: 3, info: 0 },
     sloc: 1320,
@@ -99,6 +106,7 @@ const MANUAL_AUDITS = [
     name: 'PulseFun NEON',
     date: 'Jan 2026',
     client: 'PulseFun',
+    logo: '/projects/pulsefun.png',
     chain: { name: 'PulseChain', logo: PulseChainLogo, color: '#00FF00' },
     findings: { critical: 0, high: 1, medium: 2, low: 3, info: 0 },
     sloc: 1230,
@@ -111,6 +119,7 @@ const MANUAL_AUDITS = [
     name: 'StackFi Avax',
     date: 'Jan 2026',
     client: 'StackFi',
+    logo: '/projects/stackfi.png',
     chain: { name: 'Avalanche', logo: AvalancheLogo, color: '#E84142' },
     findings: { critical: 0, high: 0, medium: 0, low: 1, info: 2 },
     sloc: 550,
@@ -123,6 +132,7 @@ const MANUAL_AUDITS = [
     name: 'DTreon Platform',
     date: 'Jan 2026',
     client: 'DTreon',
+    logo: '/projects/dtreon.png',
     chain: { name: 'BNB Chain', logo: BNBChainLogo, color: '#F3BA2F' },
     findings: { critical: 0, high: 1, medium: 3, low: 3, info: 0 },
     sloc: 2160,
@@ -298,8 +308,12 @@ export function Audits() {
                   {/* Project Info */}
                   <div className="col-span-1 md:col-span-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center">
-                        <FileText className="w-5 h-5 text-[#D4AF37]" />
+                      <div className="w-10 h-10 rounded-lg bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center overflow-hidden">
+                        {audit.logo ? (
+                          <img src={audit.logo} alt={audit.name} className="w-full h-full object-cover" />
+                        ) : (
+                          <FileText className="w-5 h-5 text-[#D4AF37]" />
+                        )}
                       </div>
                       <div>
                         <h3 className="font-semibold text-white">{audit.name}</h3>
