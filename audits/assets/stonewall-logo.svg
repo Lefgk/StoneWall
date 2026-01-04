@@ -1,0 +1,36 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Icon -->
+  <g transform="translate(5, 10)">
+    <!-- Wall -->
+    <rect x="2" y="18" width="36" height="20" rx="2" fill="url(#wallGrad)"/>
+    <!-- Towers -->
+    <rect x="2" y="8" width="10" height="14" rx="1" fill="url(#wallGrad)"/>
+    <rect x="28" y="8" width="10" height="14" rx="1" fill="url(#wallGrad)"/>
+    <!-- Battlements -->
+    <rect x="2" y="4" width="4" height="6" fill="url(#wallGrad)"/>
+    <rect x="8" y="4" width="4" height="6" fill="url(#wallGrad)"/>
+    <rect x="28" y="4" width="4" height="6" fill="url(#wallGrad)"/>
+    <rect x="34" y="4" width="4" height="6" fill="url(#wallGrad)"/>
+    <!-- Center emblem -->
+    <circle cx="20" cy="14" r="6" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Text -->
+  <text x="55" y="38" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#E5E7EB">
+    Stone<tspan fill="url(#goldGrad)">wall</tspan>
+  </text>
+  <text x="55" y="52" font-family="Arial, sans-serif" font-size="10" fill="#9CA3AF">
+    Smart Contract Security
+  </text>
+</svg>

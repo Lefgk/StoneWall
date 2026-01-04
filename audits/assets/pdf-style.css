@@ -1,0 +1,194 @@
+/* Stonewall Audit PDF Styles */
+
+@page {
+  size: A4;
+  margin: 20mm 15mm 20mm 15mm;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #ffffff;
+}
+
+/* Header with logo */
+.pdf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #D4AF37;
+}
+
+.pdf-header img {
+  height: 50px;
+}
+
+/* Headings */
+h1 {
+  color: #111827;
+  font-size: 24pt;
+  font-weight: 700;
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #D4AF37;
+}
+
+h2 {
+  color: #1f2937;
+  font-size: 16pt;
+  font-weight: 600;
+  margin-top: 25px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+h3 {
+  color: #374151;
+  font-size: 13pt;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+h4 {
+  color: #4b5563;
+  font-size: 11pt;
+  font-weight: 600;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 10pt;
+}
+
+th {
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+}
+
+tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Code blocks */
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+  font-size: 9pt;
+  color: #be185d;
+}
+
+pre {
+  background: #1f2937;
+  color: #e5e7eb;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 9pt;
+  line-height: 1.5;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Severity badges */
+.severity-critical {
+  background: #dc2626;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.severity-high {
+  background: #ea580c;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.severity-medium {
+  background: #ca8a04;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.severity-low {
+  background: #16a34a;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Blockquotes for recommendations */
+blockquote {
+  border-left: 4px solid #D4AF37;
+  margin: 15px 0;
+  padding: 10px 20px;
+  background: #fffbeb;
+  color: #92400e;
+}
+
+/* Horizontal rules */
+hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 25px 0;
+}
+
+/* Links */
+a {
+  color: #D4AF37;
+  text-decoration: none;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 25px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* Page break utilities */
+.page-break {
+  page-break-after: always;
+}
+
+/* Footer */
+.pdf-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 9pt;
+  color: #9ca3af;
+  padding: 10px;
+  border-top: 1px solid #e5e7eb;
+}
