@@ -3,12 +3,20 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { StonewallLogo } from './StonewallLogo'
 
+// Real stats from actual audits
+const AUDIT_STATS = {
+  audits: 9,
+  findings: 58,  // 5+5+8+6+12+6+6+3+7
+  criticalHigh: 5, // 1C + 4H
+  chains: 4,  // Monad, PulseChain, Avalanche, BNB Chain
+}
+
 export function Hero() {
   const stats = [
-    { value: '50+', label: 'Audits Completed' },
-    { value: '$500M+', label: 'TVL Secured' },
-    { value: '200+', label: 'Vulnerabilities Found' },
-    { value: '0', label: 'Exploits Post-Audit' },
+    { value: AUDIT_STATS.audits.toString(), label: 'Audits Completed' },
+    { value: AUDIT_STATS.chains.toString(), label: 'Chains Covered' },
+    { value: AUDIT_STATS.findings.toString(), label: 'Vulnerabilities Found' },
+    { value: AUDIT_STATS.criticalHigh.toString(), label: 'Critical/High Issues' },
   ]
 
   const features = [
