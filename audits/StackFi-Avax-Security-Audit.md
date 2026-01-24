@@ -76,7 +76,7 @@ StackFi is a minimal fork with the following customizations:
 
 | Platform | Link |
 |----------|------|
-| Twitter | [@stackfibase](https://x.com/stackfibase) |
+| Twitter | [@StackFi_](https://x.com/StackFi_) |
 | Telegram | [Join Telegram](https://t.me/+Oa-B0HvmsxFkNzBk) |
 | Discord | [Join Discord](https://discord.com/invite/WwdrKyyfnZ) |
 | Farcaster | [@stackfi](https://farcaster.xyz/stackfi) |
